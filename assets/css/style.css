@@ -1,0 +1,271 @@
+/* =========================
+   Global Styles
+========================= */
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+}
+
+/* =========================
+   Navbar
+========================= */
+.navbar {
+  background-color: #8b0000;
+}
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
+  font-weight: 500;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffd700 !important;
+}
+
+/* Navbar Glass Effect */
+.glass-navbar {
+  background: rgba(139, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease-in-out;
+}
+
+/* Brand & Link Styling */
+.glass-navbar .navbar-brand {
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.glass-navbar .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glass-navbar .nav-link:hover {
+  color: #ffd700 !important;
+}
+
+/* Underline Hover Effect */
+.glass-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 0%;
+  height: 2px;
+  background: #ffd700;
+  transition: width 0.3s ease-in-out;
+}
+
+.glass-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Button Reservasi */
+.glass-navbar .btn-warning {
+  color: #000;
+  border-radius: 20px;
+  padding: 6px 14px;
+}
+
+.glass-navbar .btn-warning:hover {
+  background-color: #ffcc00;
+}
+
+
+/* =========================
+   Hero Section
+========================= */
+.hero {
+  padding: 100px 0;
+  background: linear-gradient(120deg, #8b0000, #b22222);
+  color: white;
+}
+.hero img {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* =========================
+   Section Title
+========================= */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   Menu Card
+========================= */
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.menu-card img {
+  border-radius: 10px;
+  object-fit: cover;
+  height: 200px;
+}
+.menu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   Testimoni
+========================= */
+.card p {
+  font-style: italic;
+}
+
+/* =========================
+   Hover Shadow Utility
+========================= */
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2) !important;
+}
+
+/* =========================
+   Chef Image
+========================= */
+.chef-img-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.chef-img-wrapper img {
+  width: 100%;
+  transform: scale(1.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.chef-img-wrapper img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Versi besar (opsional, hanya jika dibutuhkan) */
+.big-img {
+  width: 110%;
+  max-width: none;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+.big-img:hover {
+  transform: scale(1.15);
+}
+
+/* =========================
+   Team Card
+========================= */
+.team-card {
+  background: #fff;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   Footer
+========================= */
+.footer-link {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-link:hover {
+  color: #FFD700;
+  padding-left: 5px;
+}
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255,255,255,0.1);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 8px;
+  color: white;
+  transition: all 0.3s ease;
+}
+.social-icon:hover {
+  background-color: #FFD700;
+  color: #8b0000;
+}
+
+/* =========================
+   Section Divider
+========================= */
+.divider {
+  height: 60px;
+  background: linear-gradient(to right, transparent, rgba(139, 0, 0, 0.1), transparent);
+}
+
+/* =========================
+   Floating WhatsApp Button
+========================= */
+.wa-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-size: 28px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-decoration: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+.wa-floating:hover {
+  background-color: #20b858;
+  transform: scale(1.05);
+}
+.wa-floating.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive untuk WA Button */
+@media (max-width: 576px) {
+  .wa-floating {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* =========================
+   Statistik Box
+========================= */
+.stat-box {
+  transition: all 0.3s ease;
+}
+.stat-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
