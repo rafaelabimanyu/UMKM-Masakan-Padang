@@ -1,0 +1,134 @@
+html, body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fafafa;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #8b0000;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ffd700 !important;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0;
+      background: linear-gradient(120deg, #8b0000, #b22222);
+      color: white;
+    }
+    .hero img {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Section Title */
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Menu Card */
+    .menu-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .menu-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .menu-card img {
+      border-radius: 10px;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    /* Testimoni */
+    .card p {
+      font-style: italic;
+    }
+
+    .hover-shadow:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2) !important;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #8b0000;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    /* Section Divider */
+    .divider {
+      height: 60px;
+      background: linear-gradient(to right, transparent, rgba(139, 0, 0, 0.1), transparent);
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-size: 28px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-decoration: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.wa-floating:hover {
+  background-color: #20b858;
+  transform: scale(1.05);
+}
+
+/* Tampilkan tombol */
+.wa-floating.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsif */
+@media (max-width: 576px) {
+  .wa-floating {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+.stat-box {
+    transition: all 0.3s ease;
+  }
+  .stat-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
