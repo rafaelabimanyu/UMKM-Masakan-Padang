@@ -1,0 +1,141 @@
+<!-- Contact Section - Tema Masakan Padang -->
+<section id="contact" class="py-5" style="background-color: #fdf7f0;">
+  <div class="container">
+
+    <!-- Judul -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="fw-bold" style="color: #8B0000; font-family: 'Playfair Display', serif;">
+        Hubungi Kami
+      </h2>
+      <p class="fs-5 text-muted mx-auto" style="max-width: 600px;">
+        Kami siap membantu Anda — dari sekadar bertanya hingga membuat pesanan keluarga.
+      </p>
+    </div>
+
+    <!-- Card Kontak -->
+    <div class="row g-4">
+      <!-- WhatsApp -->
+      <div class="col-md-4 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-card p-4 text-center h-100">
+          <i class="bi bi-whatsapp fs-1" style="color: #8B0000;"></i>
+          <h5 class="mt-3 fw-bold" style="color: #8B0000;">WhatsApp</h5>
+          <p class="text-muted">Chat cepat & langsung dengan tim kami.</p>
+          <a href="https://wa.me/6281292059125" target="_blank" class="btn btn-maroon mt-auto">
+            <i class="bi bi-chat-text"></i> Chat Sekarang
+          </a>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-4 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="200">
+        <div class="contact-card p-4 text-center h-100">
+          <i class="bi bi-envelope-fill fs-1" style="color: #d4af37;"></i>
+          <h5 class="mt-3 fw-bold" style="color: #8B0000;">Email</h5>
+          <p class="text-muted">Kirim pertanyaan atau kerja sama via email.</p>
+          <a href="mailto:info@bhinekapadang.com" class="btn btn-maroon mt-auto">
+            <i class="bi bi-send"></i> Kirim Email
+          </a>
+        </div>
+      </div>
+
+      <!-- Lokasi -->
+      <div class="col-md-4 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="300">
+        <div class="contact-card p-4 text-center h-100">
+          <i class="bi bi-geo-alt-fill fs-1" style="color: #d4af37;"></i>
+          <h5 class="mt-3 fw-bold" style="color: #8B0000;">Lokasi Kami</h5>
+          <p class="text-muted">Datang langsung ke restoran kami yang hangat.</p>
+          <a href="https://goo.gl/maps/xyz" target="_blank" class="btn btn-maroon mt-auto">
+            <i class="bi bi-map"></i> Lihat Peta
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Map -->
+    <div class="mt-5 map-container" data-aos="fade-up">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5608.031501623793!2d106.89383998656814!3d-6.332180019548103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed2681bc7c67%3A0x777152b1d3f74a62!2sSMK%20Prestasi%20Prima!5e0!3m2!1sid!2sid!4v1755194545794!5m2!1sid!2sid"
+        width="100%" height="350" style="border:0; border-radius: 15px;" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- Style -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+  .contact-card {
+    background: rgba(255,255,255,0.9);
+    border: 2px solid #8B0000;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(212,175,55,0.3);
+  }
+  .btn-maroon {
+    background-color: #8B0000;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+  }
+  .btn-maroon:hover {
+    background-color: #a32c32;
+  }
+
+  /* Efek animasi map */
+  .map-container {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeZoomIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+  @keyframes fadeZoomIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsif */
+  @media (max-width: 768px) {
+    .contact-card {
+      padding: 20px;
+    }
+    .contact-card i {
+      font-size: 2.2rem;
+    }
+    .contact-card h5 {
+      font-size: 1.1rem;
+    }
+    .contact-card p {
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 576px) {
+    .contact-card {
+      padding: 15px;
+    }
+    .contact-card i {
+      font-size: 2rem;
+    }
+    .contact-card h5 {
+      font-size: 1rem;
+    }
+    .contact-card p {
+      font-size: 0.85rem;
+    }
+    .btn-maroon {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
