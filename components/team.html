@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Cards</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+    }
+
+    .team-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      padding: 2rem 1rem;
+      height: 100%; /* Biar sama tinggi */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .profile-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #8b0000, #ff6347);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      margin: 0 auto 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover .profile-icon {
+      background: linear-gradient(135deg, #ff6347, #8b0000);
+      transform: scale(1.05);
+    }
+
+    .team-card h5 {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #222;
+    }
+
+    .team-card p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* Animasi fade-up */
+    [data-aos] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-aos].aos-animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<div class="container py-5">
+  <div class="row g-4 justify-content-center">
+
+    <!-- Head Chef -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Budi Santoso</h5>
+        <p>Head Chef</p>
+      </div>
+    </div>
+
+    <!-- Sous Chef -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Siti Aminah</h5>
+        <p>Sous Chef</p>
+      </div>
+    </div>
+
+    <!-- Manager -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Agus Wijaya</h5>
+        <p>Manager</p>
+      </div>
+    </div>
+
+    <!-- Marketing -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="300">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Dewi Kartika</h5>
+        <p>Marketing</p>
+      </div>
+    </div>
+
+    <!-- Waiter -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Rudi Hartono</h5>
+        <p>Waiter</p>
+      </div>
+    </div>
+
+    <!-- Cashier -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="100">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Lisa Anggraini</h5>
+        <p>Cashier</p>
+      </div>
+    </div>
+
+    <!-- Delivery -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Hendra Saputra</h5>
+        <p>Delivery</p>
+      </div>
+    </div>
+
+    <!-- Customer Service -->
+    <div class="col-6 col-md-4 col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="300">
+      <div class="team-card text-center w-100">
+        <div class="profile-icon"><i class="bi bi-person"></i></div>
+        <h5>Maya Putri</h5>
+        <p>Customer Service</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll("[data-aos]");
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add("aos-animate");
+      }, index * 150);
+    });
+  });
+</script>
+</body>
+</html>
