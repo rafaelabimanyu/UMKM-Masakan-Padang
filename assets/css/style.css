@@ -96,14 +96,6 @@ body {
 }
 
 /* =========================
-   Section Title
-========================= */
-.section-title {
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-/* =========================
    Menu Card
 ========================= */
 .menu-card {
@@ -221,7 +213,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   text-decoration: none;
   z-index: 9999;
-  opacity: 1;
+  opacity: 0;
   transform: translateY(20px);
   transition: all 0.3s ease;
 }
@@ -255,4 +247,3 @@ body {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-
