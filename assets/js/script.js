@@ -1,107 +1,118 @@
-// =========================
-// Inisialisasi AOS
-// =========================
-AOS.init({
-  duration: 1000,
-  once: false
-});
+// main.js
+document.addEventListener("DOMContentLoaded", () => {
 
-// =========================
-// Load Komponen via Fetch
-// =========================
-
-// navbar
-fetch("components/navbar.html")
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById("navbar-container").innerHTML = html;
-  })
-  .catch(err => console.log("Gagal memuat navbar:", err));
-
-// Hero Section
-fetch("components/hero.html")
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById("hero-container").innerHTML = html;
-
-    // Setelah hero dimuat, baru jalankan logika tombol WA
-    const waButton = document.getElementById("waButton");
-    const heroSection = document.querySelector(".hero");
-
-    function toggleWAButton() {
-      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-      if (window.scrollY > heroBottom - 80) {
-        waButton.classList.add("show");
-      } else {
-        waButton.classList.remove("show");
-      }
+  // =========================
+  // Fungsi Load Komponen Async
+  // =========================
+  async function loadComponent(url, targetId, callback) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`Gagal load ${url}`);
+      const html = await res.text();
+      const container = document.getElementById(targetId);
+      container.innerHTML = html;
+      container.classList.remove("skeleton"); // hapus placeholder
+      if (callback) callback();
+    } catch (err) {
+      console.error(err);
+      document.getElementById(targetId).innerHTML = `<!-- ${url} gagal dimuat -->`;
     }
-
-    window.addEventListener("scroll", toggleWAButton);
-    window.addEventListener("load", toggleWAButton);
-  })
-  .catch(err => console.log("Gagal memuat halaman hero:", err));
-
-
-// Team Section
-fetch("components/team.html")
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById("team-container").innerHTML = html;
-  })
-  .catch(err => console.log("Gagal memuat halaman team:", err));
-
-// Menu Section
-fetch("components/menu.html")
-  .then(r => r.text())
-  .then(d => {
-    document.getElementById("menu-container").innerHTML = d;
-  });
-
-// Testimoni Section
-fetch("components/testimoni.html")
-  .then(r => r.text())
-  .then(d => {
-    document.getElementById("testimoni-container").innerHTML = d;
-  });
-
-// Footer Section
-fetch("components/footer.html")
-  .then(r => r.text())
-  .then(d => {
-    document.getElementById("footer-container").innerHTML = d;
-  });
-
-// Partner Logos + Carousel
-fetch("components/partnerlogos.html")
-  .then(r => r.text())
-  .then(d => {
-    document.getElementById("partners-container").innerHTML = d;
-
-    // Inisialisasi carousel setelah HTML dimasukkan
-    const carouselElement = document.querySelector("#partnerCarousel");
-    if (carouselElement) {
-      new bootstrap.Carousel(carouselElement, {
-        interval: 2000,
-        ride: "carousel"
-      });
-    }
-  });
-
-// =========================
-// Tombol WhatsApp Floating
-// =========================
-const waButton = document.getElementById("waButton");
-const heroSection = document.querySelector(".hero");
-
-function toggleWAButton() {
-  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-  if (window.scrollY > heroBottom - 80) {
-    waButton.classList.add("show"); // muncul
-  } else {
-    waButton.classList.remove("show"); // sembunyi
   }
-}
 
-window.addEventListener("scroll", toggleWAButton);
-window.addEventListener("load", toggleWAButton);
+  // =========================
+  // Daftar Komponen
+  // =========================
+  const components = [
+    { url: "components/navbar.html", target: "navbar-container" },
+    { url: "components/hero.html", target: "hero-container", callback: initWAButton },
+    { url: "components/menu.html", target: "menu-container" },
+    { url: "components/testimoni.html", target: "testimoni-container" },
+    { url: "components/statistik.html", target: "statistik-container", callback: initCounter },
+    { url: "components/about.html", target: "about-container", callback: () => {
+        loadComponent("components/team.html", "team-container");
+      }
+    },
+    { url: "components/contact.html", target: "contact-container" },
+    { url: "components/partnerlogos.html", target: "partners-container", callback: initCarousel },
+    { url: "components/footer.html", target: "footer-container" }
+  ];
+
+  // =========================
+  // Load Semua Komponen
+  // =========================
+  Promise.all(components.map(c => loadComponent(c.url, c.target, c.callback)))
+    .then(() => {
+      // Init animasi AOS
+      if (window.AOS) {
+        AOS.init({ duration: 800, once: true });
+      }
+      // Sembunyikan preloader
+      const preloader = document.getElementById("preloader");
+      if (preloader) preloader.style.display = "none";
+    });
+
+  // =========================
+  // WA Floating Button
+  // =========================
+  function initWAButton() {
+    const waButton = document.getElementById("waButton");
+    const hero = document.querySelector(".hero");
+    if (!hero || !waButton) return;
+
+    const toggleWA = () => {
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      waButton.classList.toggle("show", window.scrollY > heroBottom - 80);
+    };
+
+    window.addEventListener("scroll", toggleWA);
+    window.addEventListener("load", toggleWA);
+  }
+
+  // =========================
+  // Statistik Counter
+  // =========================
+  function initCounter() {
+    const counters = document.querySelectorAll(".counter");
+    const speed = 200;
+
+    const animate = counter => {
+      const target = +counter.dataset.target;
+      let count = 0;
+      const step = target / speed;
+
+      const update = () => {
+        count += step;
+        if (count < target) {
+          counter.textContent = Math.ceil(count).toLocaleString();
+          requestAnimationFrame(update);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      };
+
+      update();
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => observer.observe(c));
+  }
+
+  // =========================
+  // Carousel Partner Logos
+  // =========================
+  function initCarousel() {
+    const carousel = document.querySelector("#partnerCarousel");
+    if (carousel) {
+      new bootstrap.Carousel(carousel, { interval: 2000, ride: "carousel" });
+    }
+  }
+
+});
