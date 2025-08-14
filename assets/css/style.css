@@ -9,13 +9,21 @@ html, body {
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fafafa;
+  color: #111;
+  margin: 0;
+  padding: 0;
 }
+
+/* Utility */
+.text-center { text-align: center; }
+.mb-0 { margin-bottom: 0; }
 
 /* =========================
    Navbar
 ========================= */
 .navbar {
   background-color: #8b0000;
+  padding: 0.5rem 1rem;
 }
 .navbar-brand,
 .nav-link {
@@ -26,29 +34,23 @@ body {
   color: #ffd700 !important;
 }
 
-/* Navbar Glass Effect */
+/* Glass Effect Navbar */
 .glass-navbar {
-  background: rgba(139, 0, 0, 0.8);
+  background: rgba(139,0,0,0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: background 0.3s ease-in-out;
 }
-
-/* Brand & Link Styling */
 .glass-navbar .navbar-brand {
   font-size: 1.3rem;
   letter-spacing: 0.5px;
 }
-
 .glass-navbar .nav-link {
-  color: #fff !important;
-  font-weight: 500;
   position: relative;
   transition: all 0.3s ease;
 }
-
-.glass-navbar .nav-link:hover {
-  color: #ffd700 !important;
+.glass-navbar .nav-link:hover::after {
+  width: 100%;
 }
 
 /* Underline Hover Effect */
@@ -63,17 +65,13 @@ body {
   transition: width 0.3s ease-in-out;
 }
 
-.glass-navbar .nav-link:hover::after {
-  width: 100%;
-}
-
 /* Button Reservasi */
 .glass-navbar .btn-warning {
   color: #000;
   border-radius: 20px;
   padding: 6px 14px;
+  transition: all 0.3s ease;
 }
-
 .glass-navbar .btn-warning:hover {
   background-color: #ffcc00;
 }
@@ -85,6 +83,9 @@ body {
   padding: 100px 0;
   background: linear-gradient(120deg, #8b0000, #b22222);
   color: white;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
 .hero img {
   animation: float 4s ease-in-out infinite;
@@ -96,15 +97,18 @@ body {
 }
 
 /* =========================
-   Menu Card
+   Menu Section
 ========================= */
 .menu-card {
+  border-radius: 10px;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .menu-card img {
-  border-radius: 10px;
-  object-fit: cover;
+  width: 100%;
   height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 .menu-card:hover {
   transform: translateY(-10px);
@@ -112,23 +116,20 @@ body {
 }
 
 /* =========================
-   Testimoni
+   Testimoni Section
 ========================= */
 .card p {
   font-style: italic;
+  color: #333;
 }
-
-/* =========================
-   Hover Shadow Utility
-========================= */
 .hover-shadow:hover {
   transform: translateY(-5px);
-  transition: 0.3s ease-in-out;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2) !important;
+  transition: 0.3s ease-in-out;
 }
 
 /* =========================
-   Chef Image
+   Chef Section
 ========================= */
 .chef-img-wrapper {
   max-width: 500px;
@@ -145,53 +146,111 @@ body {
   transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
-
-/* Versi besar (opsional, hanya jika dibutuhkan) */
 .big-img {
   width: 110%;
   max-width: none;
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
-.big-img:hover {
-  transform: scale(1.15);
+.big-img:hover { transform: scale(1.15); }
+
+/* =========================
+   Statistik Box
+========================= */
+.stat-box {
+  transition: all 0.3s ease;
+}
+.stat-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* =========================
    Footer
 ========================= */
+/* Link Footer */
 .footer-link {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 .footer-link:hover {
   color: #FFD700;
-  padding-left: 5px;
+  transform: translateX(5px);
 }
+
+/* Ikon Sosial Media */
 .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255,255,255,0.1);
-  width: 35px;
-  height: 35px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-left: 8px;
-  color: white;
+  color: #ffffff;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 .social-icon:hover {
   background-color: #FFD700;
   color: #8b0000;
+  transform: scale(1.2);
 }
+
+/* Tombol Newsletter */
+footer .btn {
+  transition: all 0.3s ease;
+}
+footer .btn:hover {
+  background-color: #ffffff;
+  color: #8b0000;
+  transform: scale(1.05);
+}
+
+/* Footer Text */
+footer p, footer small {
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Headings */
+footer h5, footer h6 {
+  color: #FFD700;
+}
+
+/* Footer Container & Layout */
+footer {
+  background: linear-gradient(135deg,#8b0000,#3b0000);
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+footer hr {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .social-icon {
+    margin-left: 4px;
+    width: 35px;
+    height: 35px;
+  }
+  footer .btn {
+    padding: 0.4rem 1.5rem;
+  }
+}
+
 
 /* =========================
    Section Divider
 ========================= */
 .divider {
   height: 60px;
-  background: linear-gradient(to right, transparent, rgba(139, 0, 0, 0.1), transparent);
+  background: linear-gradient(to right, transparent, rgba(139,0,0,0.1), transparent);
 }
 
 /* =========================
@@ -225,8 +284,6 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Responsive untuk WA Button */
 @media (max-width: 576px) {
   .wa-floating {
     width: 48px;
@@ -235,15 +292,4 @@ body {
     bottom: 15px;
     right: 15px;
   }
-}
-
-/* =========================
-   Statistik Box
-========================= */
-.stat-box {
-  transition: all 0.3s ease;
-}
-.stat-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
