@@ -26,84 +26,56 @@ body {
   color: #ffd700 !important;
 }
 
-/* Glass effect modern */
+/* Navbar Glass Effect */
 .glass-navbar {
   background: rgba(139, 0, 0, 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 0.6rem 0;
-  transition: background 0.3s ease-in-out, padding 0.3s;
+  transition: background 0.3s ease-in-out;
 }
 
-/* Brand styling */
+/* Brand & Link Styling */
 .glass-navbar .navbar-brand {
   font-size: 1.3rem;
   letter-spacing: 0.5px;
-  color: #fff;
 }
 
-.glass-navbar .navbar-brand:hover {
-  color: #ffd700;
-}
-
-/* Link styling */
 .glass-navbar .nav-link {
   color: #fff !important;
   font-weight: 500;
   position: relative;
   transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
 }
 
 .glass-navbar .nav-link:hover {
   color: #ffd700 !important;
 }
 
-/* Hover underline */
+/* Underline Hover Effect */
 .glass-navbar .nav-link::after {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
+  left: 0;
+  bottom: 3px;
   width: 0%;
   height: 2px;
   background: #ffd700;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease-in-out;
 }
 
 .glass-navbar .nav-link:hover::after {
-  width: 50%;
+  width: 100%;
 }
 
-/* Reservasi Button */
+/* Button Reservasi */
 .glass-navbar .btn-warning {
-  border: none;
   color: #000;
-  transition: transform 0.2s ease, background 0.3s ease;
+  border-radius: 20px;
+  padding: 6px 14px;
 }
 
 .glass-navbar .btn-warning:hover {
   background-color: #ffcc00;
-  transform: scale(1.05);
-}
-
-/* Responsiveness - Mobile menu animation */
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: rgba(139, 0, 0, 0.95);
-    padding: 1rem 0;
-    border-radius: 0 0 12px 12px;
-    animation: fadeDown 0.3s ease forwards;
-  }
-  .nav-item {
-    margin: 0.3rem 0;
-  }
-}
-
-@keyframes fadeDown {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
 }
 
 /* =========================
@@ -283,3 +255,4 @@ body {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
+
