@@ -23,8 +23,25 @@ fetch("components/hero.html")
   .then(response => response.text())
   .then(html => {
     document.getElementById("hero-container").innerHTML = html;
+
+    // Setelah hero dimuat, baru jalankan logika tombol WA
+    const waButton = document.getElementById("waButton");
+    const heroSection = document.querySelector(".hero");
+
+    function toggleWAButton() {
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      if (window.scrollY > heroBottom - 80) {
+        waButton.classList.add("show");
+      } else {
+        waButton.classList.remove("show");
+      }
+    }
+
+    window.addEventListener("scroll", toggleWAButton);
+    window.addEventListener("load", toggleWAButton);
   })
   .catch(err => console.log("Gagal memuat halaman hero:", err));
+
 
 // Team Section
 fetch("components/team.html")
