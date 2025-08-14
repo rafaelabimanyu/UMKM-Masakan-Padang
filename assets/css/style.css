@@ -26,58 +26,85 @@ body {
   color: #ffd700 !important;
 }
 
-/* Navbar Glass Effect */
+/* Glass effect modern */
 .glass-navbar {
   background: rgba(139, 0, 0, 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: background 0.3s ease-in-out;
+  padding: 0.6rem 0;
+  transition: background 0.3s ease-in-out, padding 0.3s;
 }
 
-/* Brand & Link Styling */
+/* Brand styling */
 .glass-navbar .navbar-brand {
   font-size: 1.3rem;
   letter-spacing: 0.5px;
+  color: #fff;
 }
 
+.glass-navbar .navbar-brand:hover {
+  color: #ffd700;
+}
+
+/* Link styling */
 .glass-navbar .nav-link {
   color: #fff !important;
   font-weight: 500;
   position: relative;
   transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
 }
 
 .glass-navbar .nav-link:hover {
   color: #ffd700 !important;
 }
 
-/* Underline Hover Effect */
+/* Hover underline */
 .glass-navbar .nav-link::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 3px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   width: 0%;
   height: 2px;
   background: #ffd700;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease;
 }
 
 .glass-navbar .nav-link:hover::after {
-  width: 100%;
+  width: 50%;
 }
 
-/* Button Reservasi */
+/* Reservasi Button */
 .glass-navbar .btn-warning {
+  border: none;
   color: #000;
-  border-radius: 20px;
-  padding: 6px 14px;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .glass-navbar .btn-warning:hover {
   background-color: #ffcc00;
+  transform: scale(1.05);
 }
 
+/* Responsiveness - Mobile menu animation */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(139, 0, 0, 0.95);
+    padding: 1rem 0;
+    border-radius: 0 0 12px 12px;
+    animation: fadeDown 0.3s ease forwards;
+  }
+  .nav-item {
+    margin: 0.3rem 0;
+  }
+}
+
+@keyframes fadeDown {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
 
 /* =========================
    Hero Section
@@ -164,19 +191,6 @@ body {
 }
 .big-img:hover {
   transform: scale(1.15);
-}
-
-/* =========================
-   Team Card
-========================= */
-.team-card {
-  background: #fff;
-  border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.team-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 /* =========================
