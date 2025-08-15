@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadComponent("components/team.html", "team-container");
       }
     },
+    { url: "components/service.html", target: "service-container" },
     { url: "components/contact.html", target: "contact-container" },
     { url: "components/partnerlogos.html", target: "partners-container", callback: initCarousel },
     { url: "components/footer.html", target: "footer-container" }
