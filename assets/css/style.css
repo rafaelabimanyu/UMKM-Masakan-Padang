@@ -158,12 +158,31 @@ body {
    Statistik Box
 ========================= */
 .stat-box {
+  background-color: white;     /* default putih */
+  color: #212529;              /* teks gelap */
   transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
+
 .stat-box:hover {
+  background-color: #8B0000;   /* maroon saat hover */
+  color: white;                /* teks putih */
+  border: 2px solid white;
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
+
+.stat-box:active {
+  background-color: #600000;   /* lebih gelap saat klik */
+  transform: scale(0.97);
+}
+
+/* Supaya icon tetap emas */
+.stat-box .text-warning {
+  color: #FFD700 !important;
+}
+
 
 /* =========================
    Footer
