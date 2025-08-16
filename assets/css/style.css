@@ -174,7 +174,7 @@ body {
 }
 
 .stat-box:active {
-  background-color: #600000;   /* lebih gelap saat klik */
+  background-color: #970000;   /* lebih gelap saat klik */
   transform: scale(0.97);
 }
 
